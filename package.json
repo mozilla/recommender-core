@@ -1,0 +1,30 @@
+{
+  "name": "recommender-core",
+  "version": "0.1.0",
+  "description": "Recommends add-ons to users based on the sites that they visit",
+  "main": "bootstrap.js",
+  "repository": "https://github.com/mozilla/recommender-core.git",
+  "author": "Michael Cooper <mythmon@mozilla.com>",
+  "license": "MPL-2.0",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "clipboardy": "^1.1.4",
+    "eslint": "^4.0.0",
+    "eslint-plugin-import": "^2.5.0",
+    "eslint-plugin-mozilla": "^0.3.4",
+    "fs-extra": "^3.0.1",
+    "fx-runner": "^1.0.6",
+    "geckodriver": "^1.7.1",
+    "mocha": "^3.4.2",
+    "path": "^0.12.7",
+    "selenium-webdriver": "^3.4.0"
+  },
+  "scripts": {
+    "postinstall": "./bin/patch_webdriver.sh",
+    "lint": "eslint .",
+    "build": "./bin/make_xpi.sh",
+    "test": "npm run build && mocha test --retry 2",
+    "manual_test": "npm run build && ./bin/manual_test.js"
+  }
+}
